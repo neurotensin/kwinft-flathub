@@ -1,0 +1,83 @@
+app-id: org.kde.kwinft
+runtime: org.kde.Platform
+runtime-version: '5.15-21.08'
+sdk: org.kde.Sdk
+sdk-extensions: [ 'org.freedesktop.Platform.GL.default']
+command: kwinft
+finish-args: [ "--share=ipc", "--socket=x11", "--device=dri",
+	/* access to local files */
+    "--filesystem=home",
+    "--env=QT_QPA_PLATFORM=xcb",
+    "--env=TMPDIR=/var/tmp"]
+modules:
+  - name: consolekit2
+    sources:
+      - type: git
+        url: https://github.com/ConsoleKit2/ConsoleKit2.git
+    buildsystem: autotools
+
+  - name: jinja2
+    sources:
+      - type: archive
+        url: https://files.pythonhosted.org/packages/89/e3/b36266381ae7a1310a653bb85f4f3658c462a69634fa9b2fef76252a50ed/Jinja2-3.1.1.tar.gz
+        sha256: 640bed4bb501cbd17194b3cace1dc2126f5b619cf068a726b98192a0fde74ae9
+    buildsystem: simple
+    build-commands:
+      - pip3 install --prefix=/app --no-deps .
+
+  - name: pam
+    sources:
+      - type: archive
+        url: https://github.com/linux-pam/linux-pam/releases/download/v1.5.2/Linux-PAM-1.5.2.tar.xz
+        sha256: e4ec7131a91da44512574268f493c6d8ca105c87091691b8e9b56ca685d4f94d
+        
+    buildsystem: autotools
+    config-opts: 
+      -  --disable-doc 
+      -  --prefix=/app
+      - --enable-securedir=/app/security/
+
+  - name: systemd
+    sources:
+      - type: git
+        url: https://github.com/systemd/systemd.git 
+    buildsystem: meson
+    config-opts: 
+      -  -Drootprefix=/app
+      -  --prefix=/app
+      -  --includedir=/app/include/
+
+  - name: layer-shell-qt
+    sources:
+      - type: git
+        url: https://invent.kde.org/vladz/layer-shell-qt.git
+    buildsystem: cmake
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo 
+ 
+  - name: kdedecoration
+    sources:
+      - type: git
+        url: https://github.com/KDE/kdecoration.git
+    buildsystem: cmake
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo 
+
+  - name: kscreenlocker
+    sources:
+      - type: git
+        url: https://invent.kde.org/plasma/kscreenlocker.git 
+    buildsystem: cmake
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo 
+
+
+
+  - name: kwinft
+    sources:
+      - type: git
+        url: https://gitlab.com/kwinft/kwinft.git 
+    buildsystem: cmake
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo 
+
