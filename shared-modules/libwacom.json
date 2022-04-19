@@ -1,0 +1,13 @@
+{
+    "name": "libwacom",
+    "sources": [
+      {
+        "type": "git",
+        "url":"https://github.com/linuxwacom/libwacom.git"
+      }
+    ],
+    "buildsystem": "meson",
+    "config-opts": [
+      "-Drootprefix=/app"
+    ]
+}

@@ -1,0 +1,18 @@
+  {
+    "name": "openssl",
+    "sources": 
+     {
+       "type": "git",
+       "url":"https://github.com/openssl/openssl.git"
+    },
+    
+    "build-options": {
+      "build-args": [
+        "--share=network"
+      ]
+    },
+    "buildsystem": "simple",
+    "build-commands": [ "git clone https://github.com/openssl/openssl.git  && cd openssl && ./Configure --prefix=/app/usr/ssl --openssldir=/app/usr/ssl '-Wl,--enable-new-dtags,-rpath,$(LIBRPATH)' && make && make install"
+    ]
+  }
+

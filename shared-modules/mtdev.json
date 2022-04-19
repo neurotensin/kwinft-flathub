@@ -1,0 +1,13 @@
+  {
+    "name": "mtdev",
+    "sources": [
+      {
+        "type": "git",
+        "url":"https://github.com/rydberg/mtdev.git"
+      }
+    ],
+    "buildsystem": "autotools",
+    "config-opts": [
+      "--prefix=/app"
+    ]
+  }

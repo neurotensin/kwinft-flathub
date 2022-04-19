@@ -1,0 +1,20 @@
+{
+    "name": "kscreenlocker",
+    "branch": "Plasma/5.18",
+    "sources": [
+      {
+        "type": "git",
+        "url": "https://github.com/KDE/kscreenlocker.git",
+        "commit": "c0975fe4a6d1f5779bffe7e867b52c9de6e8cc5e"
+      }
+    ],
+    "buildsystem": "cmake",
+    "config-opts": [
+      "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+    "-DCMAKE_INCLUDE_DIRECTORIES=/app/usr/libpam",
+    "-DCMAKE_INCLUDE_DIRECTORIES=/app/usr/libpam/.libs/",
+    "-DCMAKE_INCLUDE_DIRECTORIES=/usr/libpam/.libs/",
+    "-DCMAKE_INCLUDE_DIRECTORIES=/app/",
+    "-DPAM_REQUIRED=OFF"
+    ]
+}

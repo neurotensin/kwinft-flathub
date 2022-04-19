@@ -1,0 +1,15 @@
+{
+    "name": "qtquick",
+    "sources": [
+      {
+        "type": "git",
+        "url": "https://github.com/qt/qtquickcontrols.git",
+        "branch": "v5.15.3-lts-lgpl"
+      }
+    ],
+    "buildsystem": "qmake",
+    "config-opts": [
+        "LIBS+=-L/app/lib","PREFIX=/app","DESTDIR=/app","BUILDROOT=/app"
+    ]
+    
+}

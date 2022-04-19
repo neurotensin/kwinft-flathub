@@ -1,0 +1,14 @@
+{
+    "name": "wrapland",
+    "sources": [
+      {
+        "type": "git",
+        "url": "https://gitlab.com/kwinft/wrapland.git",
+        "branch": "Plasma/5.18"
+      }
+    ],
+    "buildsystem": "cmake",
+    "config-opts": [
+      "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
+    ]
+}

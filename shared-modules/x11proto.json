@@ -1,0 +1,13 @@
+  {
+    "name": "x11proto",
+    "sources": [
+      {
+        "type": "git",
+        "url":"https://github.com/freedesktop/xorg-proto-x11proto.git"
+      }
+    ],
+    "buildsystem": "autotools",
+    "config-opts": [
+      "--prefix=/app"
+    ]
+  }

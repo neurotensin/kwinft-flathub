@@ -1,0 +1,106 @@
+app-id: org.kde.kwinft
+runtime: org.kde.Platform
+runtime-version: '5.15-21.08'
+sdk: org.kde.Sdk
+sdk-extensions: [ 'org.freedesktop.Platform.GL.default','org.freedesktop.Sdk.Extension.golang']
+command: kwinft
+finish-args: [ "--share=ipc", "--socket=x11", "--device=dri",
+	/* access to local files */
+    "--filesystem=home",
+    "--env=QT_QPA_PLATFORM=xcb",
+    "--env=TMPDIR=/var/tmp"]
+modules:
+  - name: jinja2
+    sources:
+      - type: archive
+        url: https://files.pythonhosted.org/packages/89/e3/b36266381ae7a1310a653bb85f4f3658c462a69634fa9b2fef76252a50ed/Jinja2-3.1.1.tar.gz
+        sha256: 640bed4bb501cbd17194b3cace1dc2126f5b619cf068a726b98192a0fde74ae9
+    buildsystem: simple
+    build-commands:
+      - pip3 install --root=/ --prefix=/app --no-deps .
+
+  - shared-modules/libpam.json
+  - shared-modules/elogind.json
+
+  - name: consolekit2
+    sources:
+      - type: git
+        url: https://github.com/ConsoleKit2/ConsoleKit2.git
+    buildsystem: autotools
+
+  - name: layer-shell-qt
+    sources:
+      - type: git
+        url: https://invent.kde.org/vladz/layer-shell-qt.git
+    buildsystem: cmake
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo 
+ 
+  - name: kdedecoration
+    sources:
+      - type: git
+        url: https://github.com/KDE/kdecoration.git
+    buildsystem: cmake
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo 
+
+
+  - name: pythondep
+    build-options: 
+      build-args: [ "--share=network" ]
+    buildsystem: simple
+    build-commands:
+      - pip3 install --root=/ --prefix=/app libevdev pyudev pytest pydot-ng graphviz pydotplus
+   
+  - shared-modules/kscreenlocker.json
+  - shared-modules/libcheck.json
+  - shared-modules/libgudev.json
+  - shared-modules/libevdev.json
+  - shared-modules/mtdev.json
+  - shared-modules/libwacom.json
+  - shared-modules/graphviz.json
+
+
+###  - name: godep
+###    build-options: 
+###      build-args: [ "--share=network" , "env:":{ "GOBIN": "/app/bin/" } ]
+###      append-path: "/usr/lib/sdk/golang/bin"
+###    buildsystem: simple
+###    build-commands:
+###      - "export GOBIN=/app/bin ; go install github.com/rhysd/dot-github@latest" 
+###
+   
+  - shared-modules/libinput.json
+  - shared-modules/libdrm.json
+  - shared-modules/seatd.json
+  - shared-modules/wlroots.json
+  - shared-modules/kscreenlocker.json
+  - shared-modules/wrapland.json
+  - shared-modules/libmd.json
+  - shared-modules/libbsd.json
+  - shared-modules/fontsproto.json
+  - shared-modules/libxtrans.json
+  - shared-modules/x11proto.json
+  - shared-modules/xorg.proto.xorgproto.json
+  - shared-modules/fontutil.json
+  - shared-modules/libfontenc.json
+  - shared-modules/libxfont.json
+  - shared-modules/libxcvt.json
+#  - shared-modules/libkrb5.json
+  - shared-modules/libtirpc.json
+  - shared-modules/xwayland.json
+#  - shared-modules/qtquick.json
+
+
+
+  - name: kwinft
+    sources:
+      - type: git
+        url: "https://gitlab.com/kwinft/kwinft.git" 
+        branch: "kwinft@5.24.0"
+    buildsystem: cmake
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo 
+      - -DCMAKE_CXX_FLAGS="-fexceptions"
+      - -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON
+

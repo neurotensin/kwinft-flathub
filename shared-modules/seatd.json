@@ -1,0 +1,13 @@
+  {
+    "name": "seatd",
+    "sources": [
+      {
+        "type": "git",
+        "url":"https://github.com/kennylevinsen/seatd.git",
+        "branch":"0.6.4"
+      }
+    ],
+    "buildsystem": "meson",
+    "config-opts": [
+    ]
+  }

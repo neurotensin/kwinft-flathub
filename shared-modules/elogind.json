@@ -1,0 +1,14 @@
+  {
+    "name": "elogind",
+    "sources": [
+      {
+        "type": "git",
+        "url":"https://git.devuan.org/devuan/elogind.git",
+        "branch":"v242.2" 
+      }
+    ],
+    "buildsystem": "meson",
+    "config-opts": [
+      "-Drootprefix=/app"
+    ]
+  }

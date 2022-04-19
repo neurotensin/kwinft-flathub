@@ -1,0 +1,16 @@
+{
+    "name": "libkrb5",
+    "sources": 
+      {
+        "type": "git",
+        "url":"https://github.com/krb5/krb5.git"
+      },
+    "build-options": {
+      "build-args": [
+        "--share=network"
+      ]
+    },
+    "buildsystem": "simple",
+    "build-commands": [ "git clone  https://github.com/krb5/krb5.git && cd krb5/src &&  autoreconf -fi &&  ./configure --prefix=/app/usr/local/ && make && make install"]
+  }
+
