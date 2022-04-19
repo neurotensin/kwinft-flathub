@@ -1,0 +1,13 @@
+  {
+    "name": "libxfont",
+    "sources": [
+      {
+        "type": "git",
+        "url":"https://gitlab.freedesktop.org/xorg/lib/libxfont.git"
+      }
+    ],
+    "buildsystem": "autotools",
+    "config-opts": [
+      "--prefix=/app"
+    ]
+  }

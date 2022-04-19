@@ -1,0 +1,14 @@
+  {
+    "name": "libmd",
+    "sources": [
+      {
+        "type": "git",
+        "url":"https://github.com/guillemj/libmd.git",
+        "branch":"main"
+      }
+    ],
+    "buildsystem": "autotools",
+    "config-opts": [
+      "--prefix=/app"
+    ]
+  }

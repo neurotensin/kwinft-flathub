@@ -1,0 +1,15 @@
+{
+    "name": "wlroots",
+    "sources": [
+      {
+        "type": "git",
+        "url":"https://gitlab.freedesktop.org/wlroots/wlroots.git",
+        "branch": "0.15.1"
+      }
+    ],
+    "buildsystem": "meson",
+    "config-opts": [
+      "-Drootprefix=/app",
+      "-Ddocumentation=false"
+    ]
+}

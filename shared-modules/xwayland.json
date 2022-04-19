@@ -1,0 +1,15 @@
+{
+    "name": "xwayland",
+    "sources": [
+      {
+        "type": "git",
+        "url":"https://gitlab.freedesktop.org/xorg/xserver.git",
+        "branch": "xwayland-22.1"
+      }
+    ],
+    "buildsystem": "meson",
+    "config-opts": [
+      "-Drootprefix=/app",
+      "-Ddocumentation=false"
+    ]
+}

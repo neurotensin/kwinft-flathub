@@ -1,0 +1,13 @@
+  {
+    "name": "xorg.font.util",
+    "sources": [
+      {
+        "type": "git",
+        "url":"https://gitlab.freedesktop.org/xorg/font/util.git"
+      }
+    ],
+    "buildsystem": "autotools",
+    "config-opts": [
+      "--prefix=/app"
+    ]
+  }

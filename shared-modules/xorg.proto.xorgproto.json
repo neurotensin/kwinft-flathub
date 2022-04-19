@@ -1,0 +1,13 @@
+  {
+    "name": "xorg.proto",
+    "sources": [
+      {
+        "type": "git",
+        "url":"https://gitlab.freedesktop.org/xorg/proto/xorgproto.git"
+      }
+    ],
+    "buildsystem": "autotools",
+    "config-opts": [
+      "--prefix=/app"
+    ]
+  }

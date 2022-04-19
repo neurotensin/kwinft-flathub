@@ -1,0 +1,14 @@
+{
+    "name": "libxcvt",
+    "sources": [
+      {
+        "type": "git",
+        "url":"https://gitlab.freedesktop.org/xorg/lib/libxcvt.git"
+      }
+    ],
+    "buildsystem": "meson",
+    "config-opts": [
+      "-Drootprefix=/app",
+      "-Ddocumentation=false"
+    ]
+}

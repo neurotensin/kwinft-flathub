@@ -1,0 +1,16 @@
+{
+    "name": "libtirpc",
+    "sources": 
+      {
+        "type": "git",
+        "url":"git://git.linux-nfs.org/projects/steved/libtirpc.git"
+      },
+    "build-options": {
+      "build-args": [
+        "--share=network"
+      ]
+    },
+    "buildsystem": "simple",
+    "build-commands": [ "git clone  git://git.linux-nfs.org/projects/steved/libtirpc.git && cd libtirpc && bash  autogen.sh && autoupdate && LDFLAGS='-L/app/usr/lib' CFLAGS='-I/app/usr/include' ./configure --prefix=/app/ --disable-gssapi && LDFLAGS='-L/app/usr/lib' CFLAGS='-I/app/usr/include'  make && make install"]
+  }
+

@@ -1,0 +1,13 @@
+  {
+    "name": "libevdev",
+    "sources": [
+      {
+        "type": "git",
+        "url":"https://gitlab.freedesktop.org/libevdev/libevdev.git"
+      }
+    ],
+    "buildsystem": "meson",
+    "config-opts": [
+      "-Drootprefix=/app"
+    ]
+  }

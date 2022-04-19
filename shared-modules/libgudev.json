@@ -1,0 +1,13 @@
+{
+    "name": "libgudev",
+    "sources": [
+      {
+        "type": "git",
+        "url":"https://github.com/GNOME/libgudev.git"
+      }
+    ],
+    "buildsystem": "meson",
+    "config-opts": [
+      "-Drootprefix=/app"
+    ]
+}

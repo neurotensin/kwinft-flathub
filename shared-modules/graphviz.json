@@ -1,0 +1,14 @@
+  {
+    "name": "graphviz",
+    "sources": [
+      {
+        "type": "git",
+        "url":"https://gitlab.com/graphviz/graphviz.git",
+        "branch":"smattr/871AC92C-494A-4FE8-97EA-1D928498055B"
+      }
+    ],
+    "buildsystem": "autotools",
+    "config-opts": [
+      "--prefix=/app"
+    ]
+  }

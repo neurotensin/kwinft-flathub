@@ -1,0 +1,14 @@
+  {
+    "name": "libdrm",
+    "sources": [
+      {
+        "type": "git",
+        "url":"https://github.com/freedesktop/mesa-drm.git",
+        "branch":"main"
+      }
+    ],
+    "buildsystem": "meson",
+    "config-opts": [
+      "-Drootprefix=/app"
+    ]
+  }
